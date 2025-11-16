@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Paul Linehan | Velaxis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Paul Linehan, the Digital Brand Architect behind Velaxis.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --graphite: #2B2B2B;
+      --amber: #F0A12E;
+      --porcelain: #FCFCFB;
+      --blueprint: #3C6E9F;
+      --max-width: 1120px;
+      --radius-soft: 8px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--porcelain);
+      color: var(--graphite);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+    /* Layout helpers */
+
+    .page-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    @media (min-width: 960px) {
+      section {
+        padding: 5.5rem 0;
+      }
+    }
+
+    /* Header and nav */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(252, 252, 251, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(43, 43, 43, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-subtitle {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.7;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--amber);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(43, 43, 43, 0.15);
+      font-size: 0.9rem;
+      font-weight: 500;
+      background: #fffdfa;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-cta span {
+      font-size: 0.9rem;
+    }
+
+    .nav-cta-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: var(--amber);
+      box-shadow: 0 0 0 4px rgba(240, 161, 46, 0.25);
+    }
+
+    /* Mobile nav */
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+
+    .nav-toggle-bar {
+      width: 22px;
+      height: 2px;
+      border-radius: 999px;
+      background-color: var(--graphite);
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .nav-toggle-bar + .nav-toggle-bar {
+      margin-top: 5px;
+    }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(43, 43, 43, 0.06);
+    }
+
+    .nav-mobile a {
+      font-size: 0.98rem;
+    }
+
+    .nav-mobile .nav-cta {
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .nav-mobile.open {
+      display: flex;
+    }
+
+    .nav-toggle.open .nav-toggle-bar:nth-child(1) {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+
+    .nav-toggle.open .nav-toggle-bar:nth-child(2) {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .nav-mobile {
+        display: none !important;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      padding-top: 3.75rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding-top: 5.5rem;
+        padding-bottom: 5.5rem;
+      }
+      .hero-grid {
+        grid-template-columns: minmax(0, 3.5fr) minmax(0, 2.5fr);
+        gap: 3.5rem;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-weight: 700;
+      font-size: clamp(2.3rem, 4vw, 3.1rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
+      color: rgba(43, 43, 43, 0.88);
+    }
+
+    .hero-subtitle strong {
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .btn-primary {
+      border: none;
+      padding: 0.85rem 1.8rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.98rem;
+      background: var(--amber);
+      color: #211915;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 14px 30px rgba(240, 161, 46, 0.32);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(240, 161, 46, 0.4);
+      background-color: #f3ad44;
+    }
+
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.8rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid rgba(43, 43, 43, 0.16);
+      background: rgba(252, 252, 251, 0.8);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary:hover {
+      background-color: #ffffff;
+      border-color: rgba(43, 43, 43, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      max-width: 28rem;
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(43, 43, 43, 0.06);
+      box-shadow: 0 22px 60px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background-color: rgba(60, 110, 159, 0.06);
+      color: var(--blueprint);
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background-color: var(--blueprint);
+    }
+
+    .hero-card-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card-body {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 0.75rem;
+    }
+
+    .about-hero {
+      padding-top: 4.5rem;
+      padding-bottom: 4rem;
+    }
+
+    @media (min-width: 960px) {
+      .about-hero {
+        padding-top: 5.5rem;
+        padding-bottom: 5rem;
+      }
+    }
+
+    .about-hero .hero-title {
+      max-width: 38rem;
+    }
+
+    .about-hero-copy {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 1rem;
+      max-width: 720px;
+    }
+
+    .about-hero-copy p {
+      font-size: 1.05rem;
+      color: rgba(43, 43, 43, 0.9);
+    }
+
+    .about-section {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(252, 252, 251, 0.9));
+    }
+
+    .about-section .container {
+      max-width: 760px;
+    }
+
+    .about-section h2 {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-section p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: rgba(43, 43, 43, 0.92);
+    }
+
+    .about-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-beliefs {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-beliefs p {
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .about-system-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0 0 1.2rem;
+      display: grid;
+      gap: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .about-system-list li {
+      padding-left: 0;
+    }
+
+    .hero-list {
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .hero-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-list-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: var(--amber);
+      margin-top: 0.32rem;
+    }
+
+    /* Sections */
+
+    .section-kicker {
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin-bottom: 1.1rem;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      max-width: 38rem;
+      color: rgba(43, 43, 43, 0.88);
+      margin-bottom: 1.8rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
+      gap: 2.75rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    .pill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+
+    .pill {
+      font-size: 0.88rem;
+      padding: 0.6rem 0.85rem;
+      border-radius: var(--radius-soft);
+      background-color: rgba(43, 43, 43, 0.03);
+      border: 1px solid rgba(43, 43, 43, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .pill-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background-color: var(--amber);
+      margin-top: 0.32rem;
+      flex-shrink: 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 720px) {
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 14px;
+      padding: 1.25rem 1.2rem;
+      border: 1px solid rgba(43, 43, 43, 0.06);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.03);
+    }
+
+    .card-title {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .card-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #211915;
+      background: rgba(240, 161, 46, 0.16);
+      margin-bottom: 0.7rem;
+    }
+
+    .stack-list {
+      list-style: none;
+      display: grid;
+      gap: 0.65rem;
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+    }
+
+    .stack-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .stack-icon {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-top: 0.25rem;
+      background: radial-gradient(circle at 30% 20%, #ffffff, var(--amber));
+    }
+
+    /* Outcome band */
+
+    .outcome-band {
+      background: radial-gradient(circle at top left, rgba(240, 161, 46, 0.24), transparent 58%),
+                  radial-gradient(circle at bottom right, rgba(60, 110, 159, 0.18), transparent 60%),
+                  #ffffff;
+      border-radius: 20px;
+      padding: 2rem 1.8rem;
+      border: 1px solid rgba(43, 43, 43, 0.06);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.06);
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 880px) {
+      .outcome-band {
+        padding: 2.3rem 2.4rem;
+      }
+    }
+
+    .outcome-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .outcome-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      .outcome-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .outcome-list {
+      list-style: none;
+      font-size: 0.92rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .outcome-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .outcome-bullet {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--graphite);
+      margin-top: 0.33rem;
+      box-shadow: 0 0 0 2px rgba(33, 25, 21, 0.18);
+    }
+
+    /* CTA section */
+
+    .cta-section {
+      text-align: center;
+      padding-bottom: 4.5rem;
+    }
+
+    .cta-box {
+      margin: 0 auto;
+      max-width: 640px;
+      background-color: #ffffff;
+      border-radius: 18px;
+      padding: 2.2rem 2rem 2.3rem;
+      border: 1px solid rgba(43, 43, 43, 0.06);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.05);
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', "Times New Roman", serif;
+      font-size: 1.7rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .cta-body {
+      font-size: 0.98rem;
+      max-width: 30rem;
+      margin: 0 auto 1.5rem;
+      color: rgba(43, 43, 43, 0.9);
+    }
+
+    .cta-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-email {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--blueprint);
+      text-decoration: none;
+      padding: 0.65rem 1.25rem;
+      border-radius: 999px;
+      background-color: rgba(60, 110, 159, 0.06);
+      transition: background-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .cta-email:hover {
+      background-color: rgba(60, 110, 159, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .cta-divider {
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
+
+    .cta-small {
+      font-size: 0.83rem;
+      opacity: 0.78;
+      margin-top: 0.8rem;
+    }
+
+    .cta-investment {
+      font-size: 0.88rem;
+      opacity: 0.72;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(43, 43, 43, 0.08);
+      padding: 1.75rem 0 2.2rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0.74;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <a href="#top" class="logo">
+            <span class="logo-title">Velaxis</span>
+            <span class="logo-subtitle">Where Truth Meets Architecture</span>
+          </a>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#method">Method</a>
+            <a href="#outcomes">Outcomes</a>
+            <a href="#work-with-me" class="nav-cta">
+              <span class="nav-cta-dot"></span>
+              <span>Start the work</span>
+            </a>
+          </div>
+          <button class="nav-toggle" aria-label="Toggle navigation">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </button>
+        </nav>
+        <div class="nav-mobile" id="mobileNav">
+          <a href="#about">About</a>
+          <a href="#method">Method</a>
+          <a href="#outcomes">Outcomes</a>
+          <a href="#work-with-me" class="nav-cta">
+            <span class="nav-cta-dot"></span>
+            <span>Start the work</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section id="about" class="hero about-hero">
+        <div class="container">
+          <div class="hero-kicker">ABOUT PAUL LINEHAN</div>
+          <h1 class="hero-title">The Digital Brand Architect behind Velaxis</h1>
+          <div class="about-hero-copy">
+            <p>Most people meet me at the exact moment they’re tired of pretending their brand feels like them.</p>
+            <p>They’ve built a career, built a life, built expertise you can’t fake... and yet their online identity feels flimsy, scattered, and underpriced.</p>
+            <p>They feel real.</p>
+            <p>Their brand doesn’t.</p>
+            <p>That mismatch is the thing I fix.</p>
+            <p>But the reason I fix it the way I do comes straight out of my own origin story.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="method" class="about-section">
+        <div class="container">
+          <h2>Where it really started</h2>
+          <p>I grew up learning how to read people faster than I could read textbooks.</p>
+          <p>Life required it.</p>
+          <p>You adapt. You notice. You connect dots no one else sees.</p>
+          <p>That instinct followed me everywhere.</p>
+          <p>Into the Air Force.</p>
+          <p>Into caregiving.</p>
+          <p>Into two decades of sales where I could tell what a person needed long before they could articulate it.</p>
+          <p>Into nursing where real human stories show up raw and unfiltered.</p>
+          <p>Into entrepreneurship where I saw how many talented people were drowning in noise instead of clarity.</p>
+          <p>Underneath all of that was one truth that kept tapping on the glass.</p>
+          <p>People aren’t confused about what they do.</p>
+          <p>They’re confused about how to articulate who they are.</p>
+          <p>And the more I listened, the more I noticed the same pattern:</p>
+          <p>Everyone had a powerful origin story.</p>
+          <p>No one was using it.</p>
+          <h2>The breaking point</h2>
+          <p>There was a specific stretch of time when everything collided.</p>
+          <p>Parenting neurodivergent kids.</p>
+          <p>Building side businesses.</p>
+          <p>Feeling the constant tug to help people make sense of their message but not knowing what to call the thing I did.</p>
+          <p>I watched good people flounder because their real story never made it to the surface.</p>
+          <p>They were hiding the part of themselves that actually created trust.</p>
+          <p>That frustrated me more than anything.</p>
+          <p>Not at them, but at the gap.</p>
+          <p>The wasted potential.</p>
+          <p>The unnecessary struggle.</p>
+          <p>Eventually I hit my own moment of clarity.</p>
+          <p>I realized I wasn’t a designer or a marketer.</p>
+          <p>I wasn’t a coach or a consultant.</p>
+          <p>I was an architect.</p>
+          <p>I build structure around truth.</p>
+          <p>That realization opened everything.</p>
+          <h2>The philosophy I earned the hard way</h2>
+          <p>A brand is not your logo.</p>
+          <p>It’s not your website.</p>
+          <p>It’s not your content schedule.</p>
+          <p>A brand is the spine of your work.</p>
+          <p>It’s the belief that survived everything.</p>
+          <p>It’s the system that allows your story, your offers, and your identity to finally align.</p>
+          <p>I believe three things very deeply:</p>
+          <div class="about-beliefs">
+            <p>You don’t need reinvention. You need excavation.</p>
+            <p>Your lived experience is the competitive edge you’ve been ignoring.</p>
+            <p>When you build a system around truth, every part of your business gets easier.</p>
+          </div>
+          <p>That is the entire Velaxis methodology.</p>
+          <p>Not catchy slogans. Not hype.</p>
+          <p>Architecture.</p>
+        </div>
+      </section>
+
+      <section id="outcomes" class="about-section">
+        <div class="container">
+          <h2>How I work now</h2>
+          <p>I sit with founders, creators, and experts who have depth but lack clarity.</p>
+          <p>We dig into the real origin story, the scar tissue, the shift point, the philosophy, the pattern language.</p>
+          <p>We identify the core axis their entire brand should revolve around.</p>
+          <p>Then I build the system:</p>
+          <ul class="about-system-list">
+            <li>• Brand DNA</li>
+            <li>• Messaging architecture</li>
+            <li>• Content ecosystem</li>
+            <li>• Automation and AI workflows</li>
+            <li>• Offer structure and monetization ladder</li>
+          </ul>
+          <p>Every piece fits.</p>
+          <p>Every choice makes future choices easier.</p>
+          <p>Clients stop guessing who they are online.</p>
+          <p>They start operating from a grounded identity that actually feels like them.</p>
+          <h2>Who I do this for</h2>
+          <p>People who have lived enough life to know what they stand for.</p>
+          <p>People who are done chasing trends.</p>
+          <p>People who want the next decade of their work to be coherent, purposeful, and profitable.</p>
+          <p>People with real stories.</p>
+          <p>People with real depth.</p>
+          <p>People who are ready to turn that truth into a system that outlasts them.</p>
+          <h2>Why Velaxis exists</h2>
+          <p>Because every brand has a central axis.</p>
+          <p>Most people can’t see theirs.</p>
+          <p>It’s buried under expectations, noise, and old survival strategies.</p>
+          <p>Velaxis exists to reveal that axis and build the digital architecture that makes it visible, repeatable, and scalable.</p>
+          <p>Your story has structure.</p>
+          <p>Your work has weight.</p>
+          <p>Your identity has roots.</p>
+          <p>My job is to excavate it and build the system around it so the world finally sees what you already know in your bones.</p>
+        </div>
+      </section>
+
+      <section id="work-with-me" class="cta-section">
+        <div class="container">
+          <div class="cta-box">
+            <h2 class="cta-title">Ready to build something that'll still matter in ten years?</h2>
+            <p class="cta-body">
+              If you feel like your work is bigger than your current brand, that's your signal. The next chapter needs a system, not another random redesign. That's where I come in.
+            </p>
+            <div class="cta-contact">
+              <a href="mailto:paul@velaxis.co" class="cta-email">
+                paul@velaxis.co
+              </a>
+              <span class="cta-divider">or</span>
+              <a href="https://links.corestak.com/widget/form/sdnMvBBUKVD1vNNZf0OV" class="btn-primary" target="_blank" rel="noopener">
+                Book a foundation call
+                <span>→</span>
+              </a>
+            </div>
+            <p class="cta-small">
+              No pressure. No funnels. Just a real talk about where you are and what a clean, precise brand architecture could unlock for you.
+            </p>
+            <p class="cta-investment">
+              Premium work for established experts. Investment starts at $8,000 for the complete 8-week build.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Velaxis · Paul Linehan</div>
+        <div class="footer-links">
+          <span>Built on truth, precision, and transformation.</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile nav when a link is clicked
+    mobileNav.addEventListener('click', (event) => {
+      if (event.target.tagName.toLowerCase() === 'a') {
+        navToggle.classList.remove('open');
+        mobileNav.classList.remove('open');
+      }
+    });
+
+    // Smooth scroll for buttons with data-scroll-target
+    document.querySelectorAll('[data-scroll-target]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-scroll-target');
+        const el = document.querySelector(target);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const offset = rect.top + window.scrollY - 80; // account for sticky header
+          window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
